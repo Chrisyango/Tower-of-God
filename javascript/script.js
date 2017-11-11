@@ -35,10 +35,14 @@ $(document).ready(function() {
 	$(".navbtns a").click(closeNav);
 
 	// MASONRY -------------------------------------------------------------
-	$(".masonry").masonry({
+	var $masonry = $(".masonry").masonry({
 		itemSelector: ".masonry-item",
 		columnWidth: ".masonry-sizer",
 		percentPosition: true
+	});
+
+	$masonry.imagesLoaded().progress(function() {
+		$masonry.masonry("layout");
 	});
 
 	// SCROLLING AND LANDING ELEMENTS -------------------------------------------------------------
